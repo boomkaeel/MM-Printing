@@ -65,9 +65,12 @@ export default function App() {
       </section>
       <footer className="bg-gray-800 text-white p-6 text-center space-y-4">
         <div className="flex justify-center space-x-4">
-          <a href="#"><Facebook /></a>
-          <a href="#"><Instagram /></a>
-          <a href="#"><Twitter /></a>
+        <a href="https://www.facebook.com/Michael.Kaeeeeel" 
+		target="_blank"><Facebook /></a>
+		<a href="https://www.instagram.com/mandapatmichael/" 
+		target="_blank"><Instagram /></a>
+		<a href="https://twitter.com/mmprinting" 
+		target="_blank"><Twitter /></a>
         </div>
         <p>&copy; 2025 MM Printing. All rights reserved.</p>
         <p><a href="#" className="underline">Chat with us</a></p>
