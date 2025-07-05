@@ -37,11 +37,20 @@ export default function App() {
       </section>
       <section id="gallery" className="p-8 bg-gray-100">
         <h3 className="text-3xl font-semibold text-center mb-6">Gallery</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1, 2, 3, 4, 5, 6].map(i => (
-            <div key={i} className="bg-white h-40 rounded shadow-md"></div>
-          ))}
-        </div>
+       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+  {[
+    "/images/print1.jpg",
+    "/images/print2.jpg",
+    "/images/print3.jpg"
+  ].map((src, i) => (
+    <img
+      key={i}
+      src={src}
+      alt={`MM Print ${i + 1}`}
+      className="rounded shadow-md w-full h-40 object-cover"
+    />
+  ))}
+</div>
       </section>
       <section id="testimonials" className="p-8">
         <h3 className="text-3xl font-semibold text-center mb-6">What Our Customers Say</h3>
