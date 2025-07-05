@@ -39,9 +39,8 @@ export default function App() {
         <h3 className="text-3xl font-semibold text-center mb-6">Gallery</h3>
        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
   {[
-    "/images/print1.jpg",
-    "/images/print2.jpg",
-    "/images/print3.jpg"
+    "/images/Print1.jpg",
+    "/images/Print2.jpg"
   ].map((src, i) => (
     <img
       key={i}
