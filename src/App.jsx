@@ -5,8 +5,8 @@ export default function App() {
   return (
     <div className="font-sans bg-gray-50 text-gray-800">
       <header className="bg-white shadow p-4 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-  <img src="/images/logo.jpg" alt="MM Printing Logo" className="h-20 w-20 object-contain" />
+        <div className="flex items-center space-x-3">
+  <img src="/images/logo.jpg" alt="MM Printing Logo" className="h-30 w-30 object-contain" />
 </div>
         <nav className="space-x-7">
           <a href="#home" className="hover:text-blue-600">Home</a>
