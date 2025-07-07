@@ -1,9 +1,16 @@
 // src/Services.jsx
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Services() {
   return (
-    <div className="p-8 max-w-6xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5 }}
+      className="p-8 max-w-6xl mx-auto"
+    >
       <h3 className="text-3xl font-semibold text-center mb-6">Our Services</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
@@ -23,6 +30,6 @@ export default function Services() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
