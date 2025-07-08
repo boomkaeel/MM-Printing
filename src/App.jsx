@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -9,9 +8,11 @@ import {
 } from "react-router-dom";
 import { Facebook, Instagram } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+
 import Services from "./Services";
 import About from "./About";
 import Gallery from "./Gallery";
+import ServiceDetail from "./ServiceDetail";
 
 export default function App() {
   return (
@@ -27,15 +28,15 @@ function MainLayout() {
   return (
     <div className="font-sans bg-gray-50 text-gray-800 min-h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-white shadow p-3 flex flex-col md:flex-row justify-between items-center gap-4">
+      <header className="bg-white shadow p-2 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center space-x-2">
           <img
             src="/images/logo.jpg"
             alt="MM Printing Logo"
-            className="h-12 w-12 md:h-16 md:w-16 object-contain"
+            className="h-20 w-20 object-contain"
           />
         </div>
-        <nav className="flex flex-wrap justify-center md:justify-end gap-2 md:gap-4 text-sm md:text-base">
+        <nav className="flex flex-wrap justify-center md:justify-end gap-10">
           <Link to="/" className="hover:text-blue-600">Home</Link>
           <Link to="/about" className="hover:text-blue-600">About</Link>
           <Link to="/services" className="hover:text-blue-600">Services</Link>
@@ -50,6 +51,7 @@ function MainLayout() {
             <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
             <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+            <Route path="/services/:id" element={<PageWrapper><ServiceDetail /></PageWrapper>} />
             <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
@@ -60,12 +62,11 @@ function MainLayout() {
         <div className="flex justify-center space-x-4 items-center">
   <a href="https://www.facebook.com/Michael.Kaeeeeel" target="_blank"><Facebook /></a>
   <a href="https://www.instagram.com/mandapatmichael/" target="_blank"><Instagram /></a>
-  <a href="tel:+639123456789" className="text-sm font-semibold hover:underline">📞 0912 345 6789</a>
+  <a href="tel:+639123456789" className="text-sm font-semibold hover:underline">📞</a>
 </div>
         <p>&copy; 2025 MM Printing. All rights reserved.</p>
         <p><a href="#" className="underline">Chat with us</a></p>
-        <p>
-          Built with ♥ for your business. <br />
+        <p>Built for your need ♥ <br />
           <span className="text-sm">Online ordering available through our Order Now button above.</span>
         </p>
       </footer>
@@ -73,7 +74,7 @@ function MainLayout() {
   );
 }
 
-// Page transition wrapper
+// Transition wrapper for smooth page animation
 function PageWrapper({ children }) {
   return (
     <motion.div
@@ -87,35 +88,35 @@ function PageWrapper({ children }) {
   );
 }
 
-// Home Page
+// Home page content
 function Home() {
   return (
     <>
       <section className="text-center py-20 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4">
-        <h2 className="text-2xl md:text-4xl font-bold mb-4">Your One-Stop Printing Shop</h2>
-        <p className="text-base md:text-lg mb-6">Quality Prints. Fast Turnaround. Affordable Prices.</p>
-        <button className="text-sm md:text-base bg-white text-blue-600 px-4 py-2 rounded font-semibold">Order Now</button>
+        <h2 className="text-4xl font-bold mb-4">Your One-Stop Printing Shop</h2>
+        <p className="text-lg mb-6">Quality Prints. Fast Turnaround. Affordable Prices.</p>
+        <button className="bg-white text-blue-600 px-4 py-2 rounded font-semibold">Order Now</button>
       </section>
 
       <section className="p-4 md:p-8">
-        <h3 className="text-2xl md:text-3xl font-semibold text-center mb-6">What Our Customers Say</h3>
+        <h3 className="text-3xl font-semibold text-center mb-6">What Our Customers Say</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {['Great service and quality!', 'Fast and reliable prints every time.'].map((review, i) => (
             <div key={i} className="p-4 bg-white rounded shadow">
-              <p className="text-sm md:text-base">"{review}"</p>
-              <p className="mt-2 font-semibold text-sm md:text-base">- Customer {i + 1}</p>
+              <p>"{review}"</p>
+              <p className="mt-2 font-semibold">- Customer {i + 1}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="p-4 md:p-8 bg-white">
-        <h3 className="text-2xl md:text-3xl font-semibold text-center mb-6">Contact Us</h3>
+        <h3 className="text-3xl font-semibold text-center mb-6">Contact Us</h3>
         <form className="max-w-xl mx-auto space-y-4">
-          <input placeholder="Your Name" className="w-full p-3 text-sm md:text-base border rounded" />
-          <input type="email" placeholder="Your Email" className="w-full p-3 text-sm md:text-base border rounded" />
-          <textarea placeholder="Message" className="w-full p-3 text-sm md:text-base border rounded h-24" />
-          <button type="submit" className="bg-blue-600 text-white text-sm md:text-base px-4 py-2 rounded">Send Message</button>
+          <input placeholder="Your Name" className="w-full p-2 border rounded" />
+          <input type="email" placeholder="Your Email" className="w-full p-2 border rounded" />
+          <textarea placeholder="Message" className="w-full p-2 border rounded h-24" />
+          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">Send Message</button>
         </form>
       </section>
     </>
